@@ -1,0 +1,8 @@
+ar js cdn
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ar.js/2.2.2/aframe-ar.js"></script>
+positions and sizes
+
+shape	position	size
+cirlce  .5 0 0		radius .25
+square	0 0 0.52	0.4x0.4

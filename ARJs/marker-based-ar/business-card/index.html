@@ -1,0 +1,145 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.1/aframe.js"></script>
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/ar.js/2.2.2/aframe-ar.js"></script>-->
+</head>
+<body>
+    <script>
+         AFRAME.registerComponent('navigate-on-click', {
+            schema: {
+            url: {default: ''}
+            },
+
+            init: function () {
+            var data = this.data;
+            var el = this.el;
+
+            el.addEventListener('click', function () {
+                window.location.href = data.url;
+            });
+            }
+        });   
+    </script>
+    <a-scene >
+        <a-assets>
+            <video id="pig-video" src="../../img/video.mp4" autoplay loop></video>
+            <img src="../../img/reviewer.png" alt="" id="profile">
+            <img src="../../img/call.png" alt="" id="call-icon">
+            <img src="../../img/chat.png" alt="" id="chat-icon">
+            <img src="../../img/location.png" alt="" id="location-icon">
+            <img src="../../img/envelope.png" alt="" id="msg-icon">
+            <img src="../../img/button-1.png" alt="" id="web-btn">
+            <img src="../../img/button-1.png" alt="" id="tweet-btn">
+            <img id="skyTexture"
+      src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+        </a-assets>
+        <a-plane
+            position="0 0 -2.5"
+            color=""
+            material="opacity:0"
+            height="0.5"
+            width="0.5"
+        >
+            <a-circle
+                radius="0.3"
+                position="0.6 0.2 0"
+                src="#profile"
+            >
+
+            </a-circle>
+            <a-text
+                color="white"
+                value="Andrew \n Price"
+                position="0.6 0.1 1"
+              
+            >
+
+            </a-text>
+            <a-plane
+                position="-0.5 -0.8 0"
+                height="1"
+                width="1.6"
+                src="#pig-video"
+            >
+
+            </a-plane>
+            <a-plane
+                position="1.2 -0.45 0"
+                height="0.25"
+                width="1"
+                material="opacity:0.99"
+                src="#web-btn"
+                navigate-on-click="url:https://example.com/"
+            >
+                <a-text
+                    value="Twitter"
+                    color="black"
+                    height="2.5"
+                    width="2.5"
+                    position="-0.2 0 0"
+                >
+                </a-text>
+            </a-plane>
+            <a-plane
+                position="1.2 -0.75 0"
+                height="0.25"
+                width="1"
+                material="opacity:0.99"
+                src="#web-btn"
+            >
+                <a-text
+                    value="Website"
+                    color="black"
+                    height="2.5"
+                    width="2.5"
+                    position="-0.25 0 0"
+                >
+
+                </a-text>
+            </a-plane>
+            <a-entity
+                position="0.65 -1.15 0"
+            >
+                <a-circle
+                radius="0.15"
+                src="#call-icon"
+                >
+
+                </a-circle>
+                <a-circle
+                    radius="0.15"
+                    position="0.35 0 0"
+                    src="#chat-icon"
+                >
+
+                </a-circle>
+                <a-circle
+                    radius="0.15"
+                    position="0.7 0 0"
+                    src="#location-icon"
+                >
+
+                </a-circle>
+                <a-circle
+                    radius="0.15"
+                    position="1.05 0 0"
+                    src="#msg-icon"
+                >
+                </a-circle>
+            </a-entity>
+
+            
+        </a-plane>    
+        <a-sky src="#skyTexture"></a-sky>
+        <a-entity camera look-controls cursor="rayOrigin: mouse">
+            <a-cursor></a-cursor> 
+        </a-entity>
+       
+        
+    </a-scene>
+    
+</body>
+</html>
